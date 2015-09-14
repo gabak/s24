@@ -1,0 +1,49 @@
+<!-- 
+  Create tabs with an icon and label, using the tabs-positive style. 
+  Each tab's child <ion-nav-view> directive will have its own 
+  navigation history that also transitions its views in and out.
+-->
+
+<ion-view title="Playlists">
+    <ion-tabs class="tabs-icon-top">
+
+        <!-- Home Tab -->
+        <ion-tab title="Home" icon="icon ion-home" href="#/app/youtube/home">
+            <!--
+            <ion-content has-header="true" padding="true">
+                <h2>Tab 1 Content</h2>
+            </ion-content> -->
+            <ion-nav-view name="tab-home"></ion-nav-view>
+        </ion-tab>
+
+
+        <!-- Friends Tab -->
+        <ion-tab title="Search" icon="icon ion-search" href="#/app/youtube/search">
+            <!--
+            <ion-content has-header="true" padding="true">
+                <h2>Tab 2 Content</h2>
+            </ion-content> -->
+            <ion-nav-view name="tab-search"></ion-nav-view>
+        </ion-tab>
+
+
+        <!-- Account Tab -->
+        <ion-tab title="Authorization {{Authorized}}" icon="icon ion-person" href="#/app/youtube/authorize">
+            <!--
+            <ion-content has-header="true" padding="true">
+                <h2>Tab 3 Content</h2>
+            </ion-content> -->
+            <ion-nav-view name="tab-authorize"></ion-nav-view>
+        </ion-tab>
+
+        <!-- Only if already Authorized -->
+        <div ng-if="Authorized">
+            <ion-tab title="My Subscriptions" icon="icon ion-person" href="#/app/youtube/subscription">
+                <ion-nav-view name="tab-subscription"></ion-nav-view>
+            </ion-tab>
+        </div>
+
+    </ion-tabs>
+
+
+</ion-view>

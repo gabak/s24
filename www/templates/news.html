@@ -1,0 +1,52 @@
+<ion-view title="Ionizer Wordpress JSON API">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button menu-toggle="right" class="button button-icon icon ion-search"></button>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <ion-refresher on-refresh="doRefresh()" pulling-text="Text while Pulling..." refreshing-text="Text while refreshing...">
+        </ion-refresher>
+
+        <div class="row responsive-sm" ng-repeat="rows in DataAPI">
+            <div class="col" ng-repeat="item in rows">
+                <div class="card">
+                    <div class="item item-text-wrap item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" ng-model="checkedData[item.API_ID]" ng-change="saveCheck()">
+                        </label>
+                        <a href="#/app/wordpressjsonapi/home-detail/{{item.API_ID}}">
+                            <h2>{{item.API_Title}}</h2>
+                        </a>
+                        <p>{{item.API_Subtext}}</p>
+                    </div>
+                    <a href="#/app/wordpressjsonapi/home-detail/{{item.API_ID}}" ng-switch="item.API_IMGURL.length">
+                        <div ng-switch-when="0"></div>
+                        <div ng-switch-when="1" class="item item-image" ng-repeat="image in item.API_IMGURL">
+                            <img ng-src="{{image.url}}">
+                        </div>
+                        <div ng-switch-default>
+                            <ion-slide-box does-continue="Yes">
+                                <ion-slide ng-repeat="image in item.API_IMGURL">
+                                    <div class="item item-image">
+                                        <img ng-src="{{image.url}}">
+                                    </div>
+                                </ion-slide>
+                            </ion-slide-box>
+                        </div>
+                    </a>
+                    <div ng-repeat="media in item.API_Media" class="media-container">
+                        <iframe width="640" height="385" ng-src="{{media}}" allowfullscreen frameborder="0">
+                        </iframe>
+                    </div>
+                    <div class="item item-text-wrap ">
+                        <p class="subdued" ng-bind-html="item.API_AddText"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll ng-if="hasMoreData" on-infinite="loadMore()" distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,121 @@
+<ion-view view-title="Intro" title="Intro" class="intro">
+    <ion-nav-buttons side="left">
+        <button class="button button-dark button-clear no-animation" ng-click="startApp()" ng-if="!slideIndex">
+            Skip Intro
+        </button>
+        <button class="button button-dark button-clear no-animation" ng-click="previous()" ng-if="slideIndex > 0">
+            Previous Slide
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-positive button-clear no-animation" ng-click="next()" ng-if="slideIndex != 4">
+            Next
+        </button>
+        <button class="button button-positive button-clear no-animation" ng-click="startApp()" ng-if="slideIndex == 4">
+            Start using Ionizer
+        </button>
+    </ion-nav-buttons>
+    <ion-slide-box show-pager="true" on-slide-changed="slideChanged($index)">
+        <ion-slide>
+            <h3>Welcome to S24Mobile!</h3>
+            <div id="logo">
+                <img src="">
+            </div>
+            <p>
+                Smile Time Africa is an entertainment show Simulcasting on radio and tv
+            </p>
+            <p>
+                across the African continent.
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>
+                <h5>Show intro on App Start?</h5>
+                <label class="toggle toggle-energized">
+                    <input type="checkbox" ng-model="showTutorial.checked" ng-change="saveCheck()">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </p>
+        </ion-slide>
+        <ion-slide>
+            <h3>S24 Mobile</h3>
+
+            <div id="list">
+
+                <ol>
+                    <li><strong>Video Shout</strong>
+                    </li>
+                    <li><strong>VjMix</strong>
+                    </li>
+                    <li><strong>Africa Trending News</strong>
+                    </li>
+                    <li><strong>Motivational Quote</strong>
+                    </li>
+                </ol>
+
+                <h5>More coming soon!</h5>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <h3>Cordova Plugins</h3>
+
+            <h5>Can only be tested from Emulator / Device</h5>
+
+            <div id="list">
+                <ol>
+                    <li><strong>Admob - Show Ads on your App</strong>
+                    </li>
+                    <li><strong>Splash Screen - Control the Splash Screen</strong>
+                    </li>
+                    <li><strong>InAppBrowser - Application Browser</strong>
+                    </li>
+                    <li><strong>OAuth - Login to various OAuth providers</strong>
+                    </li>
+                    <li><strong>AppAvailibility - Check if an App has been Installed</strong>
+                    </li>
+                    <li><strong>App Rate - Get users to rate your App on the App / Play Store</strong>
+                    </li>
+                    <li><strong>Barcode Scanner</strong>
+                    </li>
+                </ol>
+            </div>
+
+            <h5>More coming soon!</h5>
+        </ion-slide>
+        <ion-slide>
+            <h3>Ionizer Features</h3>
+
+            <div id="list">
+
+                <ol>
+                    <li><strong>API Parser</strong>
+                    </li>
+                    <li><strong>URL Maker</strong>
+                    </li>
+                    <li><strong>Tabs</strong>
+                    </li>
+                    <li><strong>Pull to Refresh</strong>
+                    </li>
+                    <li><strong>Infinte Scroll</strong>
+                    </li>
+                    <li><strong>Responsive Cards</strong>
+                    </li>
+                </ol>
+
+            </div>
+
+            <h5>More coming soon!</h5>
+        </ion-slide>
+        <ion-slide>
+            <h3>Any questions?</h3>
+            <p>
+                Email us at: ramayana@interfeis.com
+            </p>
+        </ion-slide>
+    </ion-slide-box>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view title="Saved">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button menu-toggle="right" class="button button-icon icon ion-search"></button>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <div ng-if="!Authorized">
+            <button class="button button-block button-positive" ng-click="authorize()">
+                Authorize / Login
+            </button>
+        </div>
+
+        <div ng-if="Authorized">
+            <button class="button button-block button-positive" ng-click="logoff()">
+                UnAuthorize / Logoff
+            </button>
+        </div>
+        <div ng-if="Authorized">
+            <p>Hello {{PROFILE_Name}}</p>
+            <p>Your Token is {{YoutubeToken}} <br>Valid until {{YoutubeAuthExpires}}</p>
+            <img ng-src="{{PROFILE_IMG}}">
+        </div>
+    </ion-content>
+</ion-view>
