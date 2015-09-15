@@ -2,7 +2,7 @@
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
-    <ion-content has-bouncing="true" class="has-header has-footer" delegate-handle="userMessageScroll">
+    <ion-content has-bouncing="true" class="yellow has-header has-footer" delegate-handle="userMessageScroll">
         <div ng-repeat="chat in chats" class="message-wrapper" on-hold="onMessageHold($event, $index, chat)">
             <div ng-if="loggedUser.$id !== chat.created_by">
                 <img ng-if="chatUser[chat.created_by].avatar_personal !== '' " ng-src="data:image/jpeg;base64,{{chatUser[chat.created_by].avatar_personal}}" width="100%" class="profile-pic left" ng-click="viewProfile(chat)" />

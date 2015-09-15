@@ -249,15 +249,17 @@ a.autolinker {
 }
 .dark {
     background-color:  lightgray !important;
-    color: #ffffff;
+    color: black;
 }
 /*.item .item-content {*/
     /*background-color:  lightgray !important;*/
     /*color: #ffffff;*/
 /*}*/
 .item-complex .item-content, .item{
-    background-color: #ffffff !important;
+    background-color: gold !important;
+    color: white;
+    font-weight: bold;
 }
 .item-complex .item-content:hover{
-    background-color: gold !important;
+    background-color: white !important;
 }
